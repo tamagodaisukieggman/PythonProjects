@@ -69,5 +69,16 @@
             <td>56</td>
         </tr>
     </table>
+
+    <!--フォーム-->
+    <form action="/submit_form" method="post">
+        <label for="name">氏名：</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="emal">メールアドレス：</label><br>
+        <input type="email" id="email" name="email"><br>
+        <label for="message">本文：</label><br>
+        <textarea id="message" name="message"></textarea><br>
+        <button type="submit">送信</button>
+    </form>
 </body>
 </html>
