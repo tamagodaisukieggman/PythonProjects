@@ -1,0 +1,18 @@
+<!--すべてのpタグに適用される-->
+p {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+<!--それぞれの要素に対応している-->
+.en {
+    color: red;
+}
+
+.ja {
+    color: green;
+}
+
+.ch {
+    color: purple;
+}
