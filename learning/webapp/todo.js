@@ -1,4 +1,5 @@
 // ページが読み込まれたとき、localStorageからタスクを取得し、それをDOMに追加
+// ここのlocalStorageは、ブラウザに保存されている
 window.onload = function() {
     var tasks = JSON.parse(localStorage.getItem('tasks'));
 
