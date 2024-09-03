@@ -27,7 +27,7 @@
 
             if (tasks) {
                 tasks.forEach(function(task) {
-                    addTodoDOM(task);
+                    addTodoToDOM(task);
                 });
             }
         }
@@ -51,30 +51,6 @@
 
         // タスクを追加する関数
         function addTodo() {
-            /*
-            // 入力フィールドとリストの要素を取得
-            var todoInput = document.getElementById('todoInput');
-            
-            var todoList = document.getElementById('todoList');
-
-            // 新しいリストアイテム要素を作成
-            var newTodo = document.createElement('li');
-            // 新しいアイテムのテキストを入力フィールドの値に設定
-            newTodo.textContent = todoInput.value;
-            // スタイルを適用するためのクラスを設定
-            newTodo.className = 'todo-item';
-
-            // クリックイベントリスナーを新しいアイテムに追加
-            // アイテムがクリックされたときに、アイテムをリストから削除
-            newTodo.addEventListener('click', function() {
-                todoList.removeChild(newTodo);
-            });
-
-            // 新しいアイテムをリストに追加
-            todoList.appendChild(newTodo);
-            // 入力フィールドをクリア
-            todoInput.value = '';
-            */
             var todoInput = document.getElementById('todoInput');
 
             // 入力フィールドから取得したタスクをDOMとlocalStorageに追加
@@ -85,7 +61,6 @@
 
                 todoInput.value = '';
             }
-
         }
 
         // タスクをローカルストレージに追加する関数
@@ -107,7 +82,7 @@
             // 削除するタスクのインデクスを取得
             var taskIndex = tasks.indexOf(task);
             // タスクが存在すれば配列から削除
-            if (taskIndex != -1) {
+            if (taskIndex !== -1) {
                 tasks.splice(taskIndex, 1);
                 // タスクが削除された配列をJSON形式に変換し、それを'tasks'キーでlocalStorageに保存
                 localStorage.setItem('tasks', JSON.stringify(tasks));
