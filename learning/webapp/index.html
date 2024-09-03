@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ToDoアプリ</title>
+    <style>
+        .todo-list {
+            list-style-type: none;
+        }
+
+        .todo-item {
+            border: 1px solid #333;
+            margin: 5px;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>ToDoアプリ</h1>
+    <input id="todoInput" type="text" placeholder="タスクを入力" />
+    <button onclick="addTodo()"> タスクを追加</button>
+    <ul id="todoList" class="todo-list"></ul>
+
+    <script>
+        // タスクを追加する関数
+        function addTodo() {
+            // 入力フィールドとリストの要素を取得
+            var todoInput = document.getElementById('todoInput');
+            var todoList = document.getElementById('todoList');
+
+            // 新しいリストアイテム要素を作成
+            var newTodo = document.createElement('li');
+            // 新しいアイテムのテキストを入力フィールドの値に設定
+            newTodo.insertText = todoInput.value;
+            // スタイルを適用するためのクラスを設定
+            newTodo.className = 'todo-item';
+
+            // クリックイベントリスナーを新しいアイテムに追加
+            // アイテムがクリックされたときに、アイテムをリストから削除
+            newTodo.addEventListener('click', function() {
+                todoList.removeChild(newTodo)
+            });
+
+            // 新しいアイテムをリストに追加
+            todoList.appendChild(newTodo);
+            // 入力フィールドをクリア
+            todoInput.value = '';
+        }
+    </script>
+    
+</body>
+</html>
