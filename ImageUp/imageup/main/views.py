@@ -14,6 +14,9 @@ def hello_world(request):
 def index(request):
     return render(request, 'main/index.html')
 
+command = ['python', 'main/deleteOldFiles.py']
+proc = subprocess.Popen(command)
+
 def size_up(request):
     print("Method:", request.method)
     print("FILES:", request.FILES)
