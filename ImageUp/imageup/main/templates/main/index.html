@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!-- HTML5の文書型宣言 -->
+
+<html lang="ja">
+<!-- 文書の言語を日本語に設定 -->
+
+<head>
+    <meta charset="UTF-8">
+    <!-- 文字エンコーディングをUTF-8に設定 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ビューポートの設定。モバイルデバイスでの表示を最適化 -->
+
+    <title>画像解像度UP</title>
+    <!-- ページのタイトルを「画像解像度UP」に設定 -->
+
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!-- 外部のCSSファイルを読み込む。Djangoのテンプレートタグを使用 -->
+</head>
+
+<body>
+    <h1>画像解像度UP</h1>
+    <!-- ページの見出しを表示 -->
+
+    <form enctype="multipart/form-data">
+        <!-- ファイルアップロードを可能にするためのフォーム -->
+
+        {% csrf_token %}
+        <!-- DjangoのCSRF対策用トークンを挿入 -->
+
+        <div id="flex">
+            <!-- レイアウト用のフレックスボックスコンテナ -->
+
+            <div id="dragDropArea">
+                <!-- ドラッグ＆ドロップエリア -->
+
+                <div id="previewArea"></div>
+                <!-- アップロードする画像のプレビューを表示するエリア -->
+
+                <div id="drag-drop-comment" class="drag-drop-inside">
+                    <!-- ドラッグ＆ドロップの指示を表示するエリア -->
+
+                    <p class="drag-drop-info">ここにファイルをドロップ</p>
+                    <!-- ユーザーへのドラッグ＆ドロップの案内 -->
+
+                    <p>または</p>
+                    <!-- 区切りテキスト -->
+
+                    <p class="drag-drop-buttons">
+                        <!-- ファイル選択ボタンを配置 -->
+
+                        <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="img" onchange="photoPreview(event)">
+                        <!-- ファイル選択用の入力フィールド。画像ファイルのみ受け付け、変更時にphotoPreview関数を呼び出す -->
+                    </p>
+                </div>
+            </div>
+
+            <img id="receiveImageArea">
+            <!-- 処理後の画像を表示するエリア -->
+        </div>
+
+        <button id="clearButton" type="submit">クリア</button>
+        <!-- 入力内容をクリアするボタン -->
+
+        <button id="sendButton" type="submit">送信</button>
+        <!-- フォームを送信するボタン -->
+    </form>
+</body>
+</html>

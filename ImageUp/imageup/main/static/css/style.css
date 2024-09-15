@@ -1,0 +1,77 @@
+/* すべてのh1要素の左マージンを10ピクセルに設定 */
+h1{
+    margin-left: 10px;
+}
+
+/* idが"dragDropArea"の要素をスタイリング */
+#dragDropArea{
+    /* 背景色を薄いグレー（#f4f4f4）に設定 */
+    background-color: #f4f4f4;
+    /* 外側のマージンを10ピクセルに設定 */
+    margin: 10px;
+    /* 内側のパディングを10ピクセルに設定 */
+    padding: 10px;
+    /* 点線のボーダーを色#ddd、幅5ピクセルで設定 */
+    border: #ddd dashed 5px;
+    /* 最小の高さを200ピクセルに設定 */
+    min-height: 200px;
+    /* 幅を300ピクセルに設定 */
+    width: 300px;
+    /* テキストを中央揃えに設定 */
+    text-align: center;
+}
+
+/* idが"dragDropArea"の中のp要素をスタイリング */
+#dragDropArea p{
+    /* テキストの色を薄いグレー（#999）に設定 */
+    color: #999;
+    /* フォントを太字に設定 */
+    font-weight: bold;
+    /* フォントサイズを14ピクセルに設定 */
+    font-size: 14px;
+    /* フォントサイズを1.4emに設定（上の14pxを上書き） */
+    font-size: 1.4em;
+}
+
+/* idが"dragDropArea"内のクラス"drag-drop-buttons"を持つ要素をスタイリング */
+#dragDropArea .drag-drop-buttons{
+    /* 上部マージンを20ピクセルに設定 */
+    margin-top: 20px;
+    /* フォントサイズを12ピクセルに設定 */
+    font-size: 12px;
+    /* フォントサイズを1.2emに設定（上の12pxを上書き） */
+    font-size: 1.2em;
+}
+
+/* クラス"drag-drop-buttons"内のinput要素をスタイリング */
+.drag-drop-buttons input{
+    /* マージンを自動設定（中央揃え） */
+    margin: auto;
+}
+
+/* idが"flex"の要素の表示形式をフレックスボックスに設定 */
+#flex{
+    display: flex;
+}
+
+/* idが"clearButton"の要素の左マージンを230ピクセルに設定 */
+#clearButton{
+    margin-left: 230px;
+}
+
+/* idが"sendButton"の要素の左マージンを5ピクセルに設定 */
+#sendButton{
+    margin-left: 5px;
+}
+
+/* idが"receiveImageArea"の要素をスタイリング */
+#receiveImageArea{
+    /* 外側のマージンを10ピクセルに設定 */
+    margin: 10px;
+    /* 内側のパディングを10ピクセルに設定 */
+    padding: 10px;
+    /* 最小の高さを200ピクセルに設定 */
+    min-height: 200px;
+    /* 幅を300ピクセルに設定 */
+    width: 300px;
+}
