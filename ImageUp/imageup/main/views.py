@@ -17,6 +17,8 @@ def index(request):
 def size_up(request):
     print("Method:", request.method)
     print("FILES:", request.FILES)
+    img_static_path = None
+    out_static_path = None
     if request.method == 'POST' and request.FILES['img']:
         try:
             # POSTによりにより受信した画像を読み込む
@@ -40,8 +42,20 @@ def size_up(request):
                 subprocess.run(input_command)
                 os.chdir('../')
 
+                # クライアントに渡すファイルパス
+                img_static_dir = 'static/imgs/'
+                img_static_path = img_static_dir + dt_now + '.jpg'
+                out_static_path = img_static_dir + dt_now + '_sizeup' + '.jpg'
+            
+            else:
+                # 画像が格納されていなければNoneを設定する
+                img_static_path = None
+                out_static_path = None
+
         except Exception as e:
             # エラー処理
             print('エラー発生')
             print(e)
-    return render(request, 'main/index.html')
+            img_static_path = None
+            out_static_path = None
+    return render(request, 'main/index.html', {'img_path': img_static_path, 'out_path': out_static_path})

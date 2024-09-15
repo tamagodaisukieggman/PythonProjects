@@ -40,30 +40,30 @@
 
                 <div id="drag-drop-comment" class="drag-drop-inside">
                     <!-- ドラッグ＆ドロップの指示を表示するエリア -->
-
-                    <p class="drag-drop-info">ここにファイルをドロップ</p>
-                    <!-- ユーザーへのドラッグ＆ドロップの案内 -->
-
-                    <p>または</p>
-                    <!-- 区切りテキスト -->
-
-                    <p class="drag-drop-buttons">
-                        <!-- ファイル選択ボタンを配置 -->
-
+                    {% if not img_path %}
+                        <p class="drag-drop-info">ここにファイルをドロップ</p>
+                        <p>または</p>
+                        <p class="drag-drop-buttons"></p>
                         <input id="fileInput" type="file" accept="image/*" value="ファイルを選択" name="img" onchange="photoPreview(event)">
-                        <!-- ファイル選択用の入力フィールド。画像ファイルのみ受け付け、変更時にphotoPreview関数を呼び出す -->
-                    </p>
+                    {% else %}
+                        <img id="fileInput" src="{{ img_path }}">
+                    {% endif %}
                 </div>
             </div>
-
-            <img id="receiveImageArea">
-            <!-- 処理後の画像を表示するエリア -->
+            {% if not out_path %}
+                <img id="receiveImageArea"></img>
+            {% else %}
+                <img id="receiveImageArea" src="{{ out_path }}"></img>
+                <!-- 処理後の画像を表示するエリア -->
+            {% endif %}
         </div>
-
         <button id="clearButton" type="submit">クリア</button>
         <!-- 入力内容をクリアするボタン -->
-
-        <button id="sendButton" type="submit" formmethod="post">送信</button>
+        {% if not out_path %}
+            <button id="sendButton" type="submit" formmethod="post">送信</button>
+        {% else %}
+            <button disabled id="sendButton" type="submit" formmethod="post">送信</button>
+        {% endif %}
         <!-- フォームを送信するボタン -->
     </form>
     <script type="text/javascript" src="{% static 'js/client.js' %}"></script>
